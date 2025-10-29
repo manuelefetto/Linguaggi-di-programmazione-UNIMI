@@ -1,6 +1,6 @@
 module GrafoImplementato (V: Vertice.VerticeTipo) : Grafo.Grafo with type vertice = V.t = 
 struct
-  type  vertice = V.t;;
+  type vertice = V.t;;
   type arco = vertice * vertice;;
   type grafo = {
     vertici: vertice list;

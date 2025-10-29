@@ -1,4 +1,12 @@
-(* A social network is a social structure made of individuals (or organizations) called nodes,
+(* 
+
+  Ferro Manuele
+  Programming Language | Lab. 2 Es. 1
+  22/10/2025
+
+  ---
+
+A social network is a social structure made of individuals (or organizations) called nodes,
  which are tied (connected) by one or more specific types of interdependency, such as friendship,
   kinship, financial exchange, dislike, sexual relationships, or relationships of beliefs, knowledge or prestige.
 
@@ -11,8 +19,15 @@ The exercise consists of:
     you consider necessary to implement a social network
     implementing an operation that visits in a convenient way all the elements of the graph
     testing it against a dummy social network. 
+
+ ---
+  
 *)
-module StringVertice  = struct type t = string  end
+
+
+
+module StringVertice  = struct type t = string end
+module IntVertice = struct type t = int end 
 
 module Social = GrafoImpl.GrafoImplementato(StringVertice);;
 

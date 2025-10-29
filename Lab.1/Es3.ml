@@ -1,4 +1,4 @@
-(* Write the matrix datatype with the following operations:
+ (* Write the matrix datatype with the following operations:
 
     A function zeroes to construct a matrix of size n×m filled with zeros.
     A function identity to construct the identity matrix (the one with all 0s but the 1s on the diagonal) of given size.
