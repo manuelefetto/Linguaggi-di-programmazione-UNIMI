@@ -9,10 +9,10 @@
 %       is_proper: int → boolean that given a number calculates if it is a perfect number or not, where a perfect number is a positive integer equal to the sum of its proper positive divisors (excluding itself), e.g., 6 is a perfect number since 1, 2 and 3 are the proper divisors of 6 and 6 is equal to 1+2+3;
 %  ---
 
--module(utils).
--export([is_palindrome/1, is_an_anagram/2, dividers/1, factors/1, is_proper/1]).
+-module(utilsManu).
+-export([is_palindrome/1, is_an_anagram/2, factors/1, is_proper/1]).
 
-is_palindrome(Word) -> lists:rev(Word) == Word.
+is_palindrome(Word) -> lists:reverse(Word) == Word.
 
 is_an_anagram(Word, List) ->
     length([ X || X <- List, lists:sort(X) == lists:sort(Word)]) /= 0.
