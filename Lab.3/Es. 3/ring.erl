@@ -1,5 +1,5 @@
 -module(ring).
--export([start/3]).
+-export([start/3,process/0,loop/1]).
 
 start(M,N, Message) -> 
     io:format("Creo anello di ~p processi, numero di passaggi del messaggio: ~p~n", [N, M]),
@@ -10,12 +10,12 @@ start(M,N, Message) ->
     ok.
 
 create_ring(N)-> 
-    PIds = [spawn(ring , process, [])  ||_ <- lists:seq(1,N)],
+    PIds = [spawn(ring , process, [])  || _ <- lists:seq(1,N)],
     link_rings(PIds),
     PIds.
 
 link_rings(PIds) -> 
-    lists:zipwith(fun(P,Next) -> P ! {set_next, Next}end, PIds, tl(PIds) ++ hd(PIds)).
+    lists:zipwith(fun(P,Next) -> P ! {set_next, Next}end, PIds, tl(PIds) ++ [hd(PIds)]).
 
 process() ->
     receive
@@ -35,6 +35,7 @@ loop(PIdNext) ->
             PIdNext ! {pass, M-1, Message},
             loop(PIdNext);
         {quit} ->
+            io:format("~p quitting~n",[self()]),
             PIdNext ! {quit}
     end.
 
