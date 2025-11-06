@@ -25,7 +25,7 @@ let alkaline_earth_metals = [
 ]
 
 let elementoMassimo l =
-  let rec elementoMassimo l massimo = 
+  let rec elementoMassimo l massimo =
     match l with
     | hd::tl -> if hd.numeroAtomico > massimo.numeroAtomico 
                 then elementoMassimo tl hd
@@ -68,3 +68,4 @@ let elementi = List.merge comparaElementi alkaline_earth_metals_sorted noble_gas
 
 Printf.printf "Lista mergata:\n";;
 stampaListaElemento elementi;;
+
