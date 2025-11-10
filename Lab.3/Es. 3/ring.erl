@@ -15,7 +15,7 @@ create_ring(N)->
     PIds.
 
 link_rings(PIds) -> 
-    lists:zipwith(fun(P,Next) -> P ! {set_next, Next}end, PIds, tl(PIds) ++ [hd(PIds)]).
+    lists:zipwith(fun(P,Next) -> P ! {set_next, Next} end, PIds, tl(PIds) ++ [hd(PIds)]).
 
 process() ->
     receive
