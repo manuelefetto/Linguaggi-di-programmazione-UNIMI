@@ -14,6 +14,7 @@ dummy1() -> io:format("Dummy 1~n",[]), count ! { count , dummy1 },ok.
 dummy2() -> io:format("Dummy 2~n",[]), count ! { count , dummy2 },ok.
 dummy3() -> io:format("Dummy 3~n",[]), count ! { count , dummy3 },ok.
 
+
 loop() ->
     receive
         {count, Func } -> case get(Func) of
